@@ -1,0 +1,23 @@
+!!! XML
+%html{ :xmlns => "http://www.w3.org/1999/xhtml", :lang => "en", 'xml:lang' => "en" }
+  %head
+    %title BoBlog
+  %body
+    #header
+      %h1 Best |
+     Blog ever |
+
+    /Some comment here
+    #content
+      - @entries.each do |entry|
+        .entry
+          %h3.title= entry.title
+          %p.body= entry.body
+    :textile
+      h1. Hello World
+    %br/
+    %blockquote>
+      %div
+        Foo!
+    %img(src="foo.png" width='200' height='100')><
+    %p Copyright *Bob*
