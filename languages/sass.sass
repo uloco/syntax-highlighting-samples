@@ -32,10 +32,27 @@ $grid-width: 10px !global
   @return $n * $grid-width + ($n - 1) * $gutter-width
 
 @for $i from 1 through 3
-  .item-#{$i} 
+  .item-#{$i}
     width: 2em * $i
 
 @font-face
   font-family: DroidSans
   src: url(DroidSans.ttf)
   unicode-range: U+000-5FF, U+1e00-1fff, U+2000-2300
+
+// Variable
+!primary-color= hotpink
+
+// Mixin
+=border-radius(!radius)
+    -webkit-border-radius= !radius
+    -moz-border-radius= !radius
+    border-radius= !radius
+
+.my-element
+    color= !primary-color
+    width= 100%
+    overflow= hidden
+
+.my-other-element
+    +border-radius(5px)

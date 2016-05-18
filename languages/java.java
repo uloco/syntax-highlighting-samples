@@ -17,9 +17,9 @@ public class SomeClass<T extends Runnable> { // some comment
     int localVar = "IntelliJ"; // Error, incompatible types
     System.out.println(anotherString + toString() + localVar);
     long time = Date.parse("1.2.3"); // Method is deprecated
-    int reassignedValue = this.staticField; 
-    reassignedValue ++; 
-    field.run(); 
+    int reassignedValue = this.staticField;
+    reassignedValue ++;
+    field.run();
     new SomeClass() {
       {
         int a = localVar;

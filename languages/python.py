@@ -10,9 +10,11 @@ class Foo:
         byte_string = 'newline:\n also newline:\x0a'
         text_string = u"Cyrillic Я is \u042f. Oops: \u042g"
         self.makeSense(whatever=1)
-    
+
     def makeSense(self, whatever):
         self.sense = whatever
+        if True:
+            pass
 
 x = len('abc')
 print(f.__doc__)

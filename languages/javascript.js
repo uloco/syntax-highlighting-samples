@@ -12,7 +12,19 @@ function AjaxRequest(url) {
   this.foo = new function() {};
   foo();
   #
+  const cons = 'abc';
+  var a = true;
 }
 
 class NameClass {
+}
+
+foo({abc: 'abcde'})
+
+foo.bar({foo: 'abc'})
+
+obj = {}
+
+obj.abc = function () {
+
 }

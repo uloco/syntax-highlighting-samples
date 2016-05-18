@@ -1,41 +1,19 @@
-/* Some loud comment here */
-// And silent one
+// Variable
+$primary-color: hotpink;
 
-$padding: 1% !default
-@import variables
+// Mixin
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    border-radius: $radius;
+}
 
-=large-text
-  :font
-    :family Arial
-    :size 20px
-    :weight bold
-  :color #ff0000
+.my-element {
+    color: $primary-color;
+    width: 100%;
+    overflow: hidden;
+}
 
-#main a:visited span[lang="en"]
-  @extend .shadow !optional
-  +large-text
-  p.info
-    color: #00ddcc
-  :width 97% !important
-
-@mixin with-shadow($color: black)
-  box-shadow: $color, 1px, 2px, 3px
-
-.shadowBlock
-  @include with-shadow(blue)
-
-$grid-width: 40px
-$gutter-width: 10px
-
-@function grid-width($n)
-$grid-width: 10px !global
-  @return $n * $grid-width + ($n - 1) * $gutter-width
-
-@for $i from 1 through 3
-  .item-#{$i} 
-    width: 2em * $i
-
-@font-face
-  font-family: DroidSans
-  src: url(DroidSans.ttf)
-  unicode-range: U+000-5FF, U+1e00-1fff, U+2000-2300
+.my-other-element {
+    @include border-radius(5px);
+}
