@@ -15,7 +15,13 @@ function AjaxRequest(url) {
   const cons = 'abc';
   var a = true;
 }
-
+let myObj = {
+  first: 'first',
+  second: 3,
+  o : {
+    hello: 'world'
+  }
+}
 class NameClass {
 }
 
