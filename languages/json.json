@@ -3,7 +3,7 @@
   /* As well as block comments. */
   "the only keywords are": [true, false, null],
   "strings with": {
-    "no excapes": "pseudopolinomiality"
+    "no excapes": "pseudopolinomiality",
     "valid escapes": "C-style\r\n and unicode\u0021",
     "illegal escapes": "\0377\x\"
   },
