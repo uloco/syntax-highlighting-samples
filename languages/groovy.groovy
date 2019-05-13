@@ -28,3 +28,9 @@ f1 = [2]
 File f=['path']
 print new Demo().property
 print '\n \x'
+
+def notifyFailed() {
+  emailext (
+    foobar: [[$class: 'wtf']]
+  )
+}

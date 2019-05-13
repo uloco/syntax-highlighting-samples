@@ -1,0 +1,21 @@
+# Comment
+
+query Hero($episode: Episode!, $withFriends: Boolean!) {
+  hero(episode: $episode) {
+    name
+    ...HeroDetails
+    acquaintances: friends @include(if: $withFriends) {
+      name
+    }
+  }
+}
+
+fragment HeroDetails on Character {
+  name
+  ... on Human {
+    height(unit: METER)
+  }
+  ... on Droid {
+    primaryFunction
+  }
+}
