@@ -9,7 +9,7 @@ function AjaxRequest(url) {
   url = url.replace(/^\s*(.*)/, "$1"); // skip leading whitespace
   /* check the url to be in urls */
   var a = "\u1111z\n\u11ac";
-  this.foo = new function() {}();
+  this.foo = new (function() {})();
   foo();
   // #
   const cons = "abc";
