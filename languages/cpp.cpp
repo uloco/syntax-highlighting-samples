@@ -1,9 +1,3 @@
-//
-//  Essential C++
-//      Stanley Lippman
-//      Chen Chen @ December 5th, 2014
-//
- 
 #include <iostream>
 #include <fstream>
 #include <string>
