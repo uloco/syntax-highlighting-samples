@@ -13,7 +13,8 @@ function AjaxRequest(url) {
   foo();
   // #
   const cons = "abc";
-  var a = true;
+  let a = true;
+  console.log(cons)
 }
 let myObj = {
   first: "first",
@@ -23,11 +24,6 @@ let myObj = {
   }
 };
 class NameClass {}
-
 foo({ abc: "abcde" });
-
 foo.bar({ foo: "abc" });
-
-obj = {};
-
 obj.abc = function() {};
