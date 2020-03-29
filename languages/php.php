@@ -13,7 +13,7 @@ function foo() {
 class SomeClass extends One implements Another {
    private $my;
    public static $shared;
-   const CONSTANT = 0987654321;
+   const CONSTANT = 1987654321;
    /**
     * Description by <a href="mailto:">user@host.dom</a>
     * @property $magic
