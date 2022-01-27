@@ -4,6 +4,11 @@ def f(x):
         @param x Parameter"""
     s = ("Test", 2+3, {'a': 'b'}, x)   # Comment
     print s[0].lower()
+    for t in s:
+        if t in s:
+            print('sorry') 
+            x & s
+
 
 class Foo:
     def __init__(self):
@@ -18,3 +23,4 @@ class Foo:
 
 x = len('abc')
 print(f.__doc__)
+
