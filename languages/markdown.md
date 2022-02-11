@@ -148,7 +148,7 @@ Tables:
 | -------- | -------- |
 | Data 1   | Data 2   |
 
-This is ~~_strikethrough_~~ text
+This is ~~strikethrough~~ text
 
 ~~**strikethrough bold**~~
 ~~_strikethrough italic_~~
