@@ -1,0 +1,112 @@
+import List from "list"
+
+print("Hello, world!")
+
+// The same tuple from the previous two examples
+let user = ("Klaus Teuber", 67, "yellow")
+
+let (_, age, _) = user
+
+let ageNextYear = age + 1
+
+let rec fibonacci = n => {
+  if (n == 0 || n == 1) {
+    n
+  } else {
+    fibonacci(n - 1) + fibonacci(n - 2)
+  }
+}
+
+List.length([4, 5, 6])
+
+List.map(n => n + 3, [1, 2, 3]) // [4, 5, 6]
+
+let mut count = 7
+
+count += 9
+count -= 6
+count *= 5
+count /= 25
+
+print(count) // 2
+
+enum Veggie {
+  Squash,
+  Cabbage,
+  Broccoli,
+}
+enum Fruit {
+  Apples,
+  Oranges,
+  Bananas,
+}
+
+enum VeggieInventory {
+  VeggieCrate(Veggie),
+  VeggieTruckload(Veggie),
+}
+enum FruitInventory {
+  FruitCrate(Fruit),
+  FruitTruckload(Fruit),
+}
+
+let veggieInventory = [VeggieCrate(Broccoli), VeggieTruckload(Cabbage)]
+let fruitInventory = [FruitCrate(Apples), FruitTruckload(Oranges)]
+
+record Person {
+  name: String,
+  age: Number,
+}
+
+let name = "Klaus Teuber"
+let age = 42
+
+{ name, age }
+
+enum Topping {
+  Cheese,
+  Pepperoni,
+  Peppers,
+  Pineapple,
+}
+enum Menu {
+  Pizza(Topping),
+  Calzone(Topping),
+}
+
+record Person {
+  name: String,
+  age: Number,
+}
+
+let user = { name: "Klaus Teuber", age: 42 }
+print(user.name) // prints "Klaus Teuber"
+let mut u = "a"
+u = "uu"
+
+let item = Calzone(Peppers)
+
+match (item) {
+  Calzone(topping) => {
+    if (checkSpecials(topping)) {
+      print("These are half off this week.")
+    } else {
+      print("No current specials.")
+    }
+  },
+  _ => print("No current specials."),
+}
+
+let list = [1, 2, 3]
+
+match (list) {
+  [first, second, ..._] => first + second,
+  _ => fail "List contained fewer than 2 elements",
+}
+
+let myNumber = Some(123)
+match (myNumber) {
+  Some(val) => print("Less than or equal to 100"),
+  Some(val) when val > 100 => print("More than 100"),
+  None => print("Nothing at all"),
+}
