@@ -25,11 +25,10 @@ x = len('abc')
 print(f.__doc__)
 
 # nested `in` operator
-requested toppings = ['mushrooms', 'french fries', 'extra cheese']
-17 for requested_topping in requested_toppings:
-18
-if requested topping in available toppings:
-19
-print (f'Sorry, we do not have {requested_topping)')
-20 print('Infinished making your pizza!')
+available_toppings = []
+requested_toppings = ['mushrooms', 'french fries', 'extra cheese']
+for requested_topping in requested_toppings:
+    if requested_topping in available_toppings:
+        print(f'Sorry, we do not have {requested_topping}')
+print('finished making your pizza!')
 
