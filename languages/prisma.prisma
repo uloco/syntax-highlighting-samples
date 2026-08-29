@@ -1,0 +1,70 @@
+// Comment
+/// Doc comment
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  schemas  = ["public", "audit"]
+}
+
+generator client {
+  provider        = "prisma-client-js"
+  output          = "../generated/client"
+  previewFeatures = ["views", "relationJoins"]
+}
+
+/// Doc comment on a model
+model User {
+  id        String                @id @default(uuid())
+  seq       Int                   @default(autoincrement())
+  views     BigInt                @default(0)
+  score     Float                 @default(1.5)
+  balance   Decimal               @db.Decimal(10, 2)
+  active    Boolean               @default(true)
+  email     String                @unique @db.VarChar(255)
+  createdAt DateTime              @default(now()) @map("created_at")
+  updatedAt DateTime?             @updatedAt
+  meta      Json?
+  avatar    Bytes?
+  tags      String[]
+  legacy    String?               @ignore
+  place     Unsupported("point")?
+  role      Role                  @default(USER)
+  profile   Profile?
+  posts     Post[]
+  bossId    String?
+  boss      User?                 @relation("Team", fields: [bossId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  crew      User[]                @relation("Team")
+
+  @@unique([email, seq], name: "email_seq")
+  @@index([createdAt(sort: Desc)], type: BTree)
+  @@map("users")
+  @@schema("public")
+}
+
+model Post {
+  slug     String
+  lang     String
+  authorId String
+  author   User   @relation(fields: [authorId], references: [id])
+
+  @@id([slug, lang])
+  @@schema("public")
+}
+
+model Profile {
+  userId String   @id
+  bio    String   @default("")
+  links  String[]
+  user   User     @relation(fields: [userId], references: [id])
+
+  @@schema("public")
+}
+
+enum Role {
+  USER  @map("user")
+  ADMIN @map("admin")
+
+  @@map("roles")
+  @@schema("public")
+}
