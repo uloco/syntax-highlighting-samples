@@ -1,0 +1,69 @@
+// Comment
+/* Block comment */
+syntax = "proto3";
+
+package demo.v1;
+
+import "google/protobuf/timestamp.proto";
+import public "google/protobuf/any.proto";
+import weak "google/protobuf/struct.proto";
+
+option go_package = "example.com/demo/v1;demov1";
+option java_multiple_files = true;
+option (my.file_opt) = { level: -1, mask: 0x1f, ratio: 1.5e3 };
+
+enum State {
+  option allow_alias = true;
+  STATE_UNSPECIFIED = 0;
+  STATE_ON = 1;
+  STATE_ENABLED = 1;
+  reserved 2, 4 to 6, 9 to max;
+  reserved "STATE_OLD";
+}
+
+message Item {
+  option deprecated = true;
+
+  message Nested {
+    double d = 1;
+    float f = 2;
+    int32 i32 = 3;
+    int64 i64 = 4;
+    uint32 u32 = 5;
+    sint64 s64 = 6;
+    fixed64 fx64 = 7;
+  }
+
+  enum Kind {
+    KIND_UNKNOWN = 0;
+    KIND_A = 1;
+  }
+
+  string id = 1 [(validate.rules).string.min_len = 1, json_name = "ID"];
+  bool active = 2 [deprecated = true];
+  bytes blob = 3;
+  optional string label = 4;
+  repeated Nested nested = 5;
+  map<string, google.protobuf.Any> attrs = 6;
+  google.protobuf.Timestamp created_at = 7;
+  google.protobuf.Struct meta = 8;
+  Kind kind = 9;
+  State state = 10;
+
+  oneof source {
+    string url = 11;
+    int64 ref_id = 12;
+  }
+
+  reserved 13, 15 to 20;
+  reserved "old_name";
+}
+
+service ItemService {
+  option deprecated = false;
+  rpc Get(Item.Nested) returns (Item) {
+    option idempotency_level = NO_SIDE_EFFECTS;
+    option (my.method_opt) = { timeout: 30 };
+  }
+  rpc Push(stream Item) returns (stream Item);
+}
