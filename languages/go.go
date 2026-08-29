@@ -57,7 +57,7 @@ func (ps PublicStruct) PublicFunc() int {
     return ps.privateField
 }
 
-func (ps PublicStruct) privateFunc() {
+func (ps PublicStruct) privateFunc() int {
     return ps.PublicField
 }
 
@@ -65,16 +65,16 @@ func (ps privateStruct) PublicFunc() int {
     return ps.privateField
 }
 
-func (ps privateStruct) privateFunc() {
+func (ps privateStruct) privateFunc() int {
     return ps.PublicField
 }
 
 func variableFunc(demo1 int) {
-    demo1</fpm> = 3
+    demo1 = 3
     a := PublicStruct{}
     a.privateFunc()
     demo2 := 4
-    if demo1, demo2 := privateFunc(); <pv>demo1</pv> != 3 {
+    if demo1, demo2 := privateFunc(); demo1 != 3 {
         _ = demo1
         _ = demo2
         return
@@ -99,7 +99,7 @@ demoLabel:
     }
     _ = b()
     _ = PublicFunc()
-    _ = variableFunc(1)
+    variableFunc(1)
     _ = demo1
     _ = demo2
     println("builtin function")
@@ -108,8 +108,8 @@ demoLabel:
 func main() {
     fmt.Println("demo")
     variableFunc(1)
-    c := bt
-    d := nil
+    c := true
+    var d *PublicStruct = nil
     _, _ = c, d
 }
 
