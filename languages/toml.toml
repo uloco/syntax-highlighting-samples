@@ -1,0 +1,57 @@
+# comment on a key/value pair
+bare_key = "value"
+bare-key_2 = "dash and digit"
+"a.b" = "quoted key with dot"
+'literal key' = 'no \escape sequence here'
+physical.shape.color = "orange"
+escaped = "tab\there\nnewline \u00E9 \\ \" \u0041"
+folded = """
+one line \
+   continued via backslash"""
+raw = 'C:\Users\nope'
+raw_block = '''
+literal ${no} \interpolation
+'''
+int = 1_000_000
+negative = -17
+positive = +42
+hex = 0xDEAD_BEEF
+oct = 0o755
+bin = 0b1101
+float = 6.626_070e-34
+big = 9.0E+2
+plus_inf = inf
+minus_inf = -inf
+not_a_number = nan
+truthy = true
+falsy = false
+offset_dt = 1979-05-27T07:32:00.999-08:00
+local_dt = 1979-05-27T00:32:00
+local_d = 1979-05-27
+local_t = 07:32:00.5
+mixed = [1, "two", 3.0, true, [0xff, 0b10], { k = "v" }]
+spread = [
+  'raw',
+  1979-05-27,
+]
+inline = { name = "hammer", sku = 738_594_937, dim = { w = 2, h = 8 } }
+
+[table]
+enabled = true
+
+[a.b.c]
+key = "deeply nested"
+
+["with dot"]
+weird = true
+
+['literal.header']
+also_weird = false
+
+[[products]]
+name = "nail"
+qty = 5_000
+
+[[products]]
+name = "screw"
+qty = nan
